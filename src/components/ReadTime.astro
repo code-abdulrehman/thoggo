@@ -1,0 +1,40 @@
+---
+import { WORDS_PER_MINUTE } from '../consts';
+
+interface Props {
+  content: string;
+}
+
+const { content } = Astro.props;
+
+// Calculate reading time
+function calculateReadTime(text: string): number {
+  const words = text.trim().split(/\s+/).length;
+  const readTime = Math.ceil(words / WORDS_PER_MINUTE);
+  return readTime;
+}
+
+const readTime = calculateReadTime(content);
+---
+
+<div class="read-time">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"></circle>
+    <polyline points="12,6 12,12 16,14"></polyline>
+  </svg>
+  <span>{readTime} min read</span>
+</div>
+
+<style>
+  .read-time {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgb(var(--gray));
+    font-size: 0.9rem;
+  }
+
+  .read-time svg {
+    opacity: 0.7;
+  }
+</style> 
