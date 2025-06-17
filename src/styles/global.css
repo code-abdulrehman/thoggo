@@ -5,9 +5,9 @@
  */
 
 :root {
-	--accent: #2563eb;
-	--accent-dark: #1d4ed8;
-	--accent-light: #3b82f6;
+	--accent: rgba(102, 51, 204, 1);
+	--accent-dark: rgba(68, 34, 136, 1);
+	--accent-light: rgba(136, 85, 238, 1);
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
 	--gray-light: 229, 233, 240;

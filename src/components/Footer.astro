@@ -47,7 +47,6 @@ const currentYear = new Date().getFullYear();
 <style>
 	footer {
 		margin-top: auto;
-		padding: 2rem 1rem;
 		background: rgba(255, 255, 255, 0.9);
 		backdrop-filter: blur(10px);
 		border-top: 1px solid rgba(var(--gray), 0.2);
@@ -55,8 +54,10 @@ const currentYear = new Date().getFullYear();
 	}
 
 	.footer-content {
-		max-width: 720px;
-		margin: 0 auto;
+		width: 960px;
+		max-width: calc(100% - 2em);
+		margin: auto;
+		padding: 3em 1em;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

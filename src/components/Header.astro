@@ -6,7 +6,12 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 <header>
 	<div class="header-content">
 		<div class="brand-section">
-			<h2><a href="/">{SITE_TITLE}</a></h2>
+			<h2><a href="/">
+				<span class="w-12 h-12">
+					<svg fill="var(--accent)" height="22" width="22" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" transform="rotate(135)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M136.6 138.79a64.003 64.003 0 0 0-43.31 41.35L0 460l14.69 14.69L164.8 324.58c-2.99-6.26-4.8-13.18-4.8-20.58 0-26.51 21.49-48 48-48s48 21.49 48 48-21.49 48-48 48c-7.4 0-14.32-1.81-20.58-4.8L37.31 497.31 52 512l279.86-93.29a64.003 64.003 0 0 0 41.35-43.31L416 224 288 96l-151.4 42.79zm361.34-64.62l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.75 18.75-49.15 0-67.91z"></path></g></svg>
+				</span>
+				{SITE_TITLE}
+			</a></h2>
 			<p class="brand-subtitle">Building the future, one line of code at a time</p>
 		</div>
 		<div class="nav-section">
@@ -38,7 +43,6 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 <style>
 	header {
 		margin: 0;
-		padding: 2rem 1rem;
 		background: rgba(255, 255, 255, 0.9);
 		backdrop-filter: blur(10px);
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
@@ -50,8 +54,10 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 	}
 
 	.header-content {
-		max-width: 720px;
-		margin: 0 auto;
+		width: 960px;
+		max-width: calc(100% - 2em);
+		margin: auto;
+		padding: 1.5em 1em;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -73,10 +79,7 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 	h2 a,
 	h2 a.active {
 		text-decoration: none;
-		background: linear-gradient(45deg, var(--accent), var(--accent-dark));
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+		color: rgb(var(--black));
 		transition: all 0.3s ease;
 	}
 
@@ -168,7 +171,7 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 		}
 
 		.social-links {
-			justify-content: center;
+			display: none;
 		}
 	}
 
@@ -190,9 +193,5 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 			font-size: 0.8rem;
 		}
 
-		.social-links a {
-			width: 32px;
-			height: 32px;
-		}
 	}
 </style>
