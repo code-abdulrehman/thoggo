@@ -6,7 +6,7 @@ export const SITE_DESCRIPTION = 'Welcome to my personal blog where I share insig
 
 // Author information
 export const AUTHOR_NAME = 'Abdulrehman';
-export const AUTHOR_BIO = 'Full-stack developer passionate about modern web technologies and AI integration.';
+export const AUTHOR_BIO = 'Frontend developer passionate about modern web technologies and AI integration.';
 export const AUTHOR_AVATAR = 'https://media.licdn.com/dms/image/v2/D4E03AQEVSpz8rIP07A/profile-displayphoto-shrink_200_200/B4EZWvZR1IHUAk-/0/1742404397312?e=1754524800&v=beta&t=ZwFA7f0wySGQSGGMxtnT-9eRl207k1-AoTMESq-s5xQ'; // You can add your photo to public folder
 
 // Social links
