@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import ReadTime from '../components/ReadTime.astro';
 import AuthorInfo from '../components/AuthorInfo.astro';
+import Chatbot from '../components/Chatbot.tsx';
 
 type Props = CollectionEntry<'blog'>['data'] & {
 	content?: string;
@@ -125,7 +126,7 @@ const { title, description, pubDate, updatedDate, heroImage, content = '' } = As
 		<main>
 			<article>
 				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt={title} />}
+					{heroImage && <img width={960} height={510} src={heroImage} alt={title} />}
 				</div>
 				<div class="prose">
 					<div class="title">
@@ -151,5 +152,6 @@ const { title, description, pubDate, updatedDate, heroImage, content = '' } = As
 			</article>
 		</main>
 		<Footer />
+		<Chatbot client:load />
 	</body>
 </html>
