@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Chatbot from '../components/Chatbot.tsx';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
@@ -13,37 +14,55 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
+			<h2>👋 Welcome to My Digital Space!</h2>
 			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
+				I'm a Front-End Developer passionate about building innovative web applications that blend 
+				cutting-edge technology with exceptional user experiences. This is where I share my journey, 
+				projects, and insights in the world of modern web development and AI integration.
 			</p>
 			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
+				With expertise in <strong>Front-End Technologies</strong>, I specialize in creating 
+				scalable, performant applications. I'm currently expanding into full-stack development with 
+				<strong>Node.js</strong>, while exploring the exciting possibilities of 
+				<strong>AI integration</strong> through OpenAI SDKs and LLM technologies.
 			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
+			
+			<div class="highlights">
+				<h3>What You'll Find Here:</h3>
+				<ul>
+					<li><strong>Project Showcases</strong> - Explore my latest web applications and AI-powered solutions</li>
+					<li><strong>Technical Blog Posts</strong> - Insights on React, Vue, AI integration, and modern web development</li>
+					<li><strong>Learning Journey</strong> - My path from frontend to full-stack development</li>
+					<li><strong>Code Tutorials</strong> - Practical guides on building with modern tech stacks</li>
+					<li><strong>AI Experiments</strong> - Exploring OpenAI, RAG pipelines, and Computer Vision applications</li>
+				</ul>
+			</div>
+
+			<div class="quick-links">
+				<h3>Quick Navigation:</h3>
+				<ul>
+					<li>Check out my <a href="/about">About page</a> to learn more about my background</li>
+					<li>Browse my <a href="/blog">Blog posts</a> for technical insights and tutorials</li>
+					<li>View my latest projects and experiments in the blog section</li>
+					<li>Connect with me through the links in the footer</li>
+				</ul>
+			</div>
+
 			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
+				Whether you're interested in modern frontend frameworks, AI-powered applications, or 
+				collaborative development opportunities, you've come to the right place. Let's build 
+				something amazing together!
 			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+
+			<div class="cta">
+				<p>
+					<strong>Ready to dive in?</strong> Start by exploring my 
+					<a href="/blog">latest blog posts</a> or learn more 
+					<a href="/about">about my journey</a>.
+				</p>
+			</div>
 		</main>
 		<Footer />
+		<Chatbot client:load />
 	</body>
 </html>

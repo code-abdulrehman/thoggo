@@ -227,8 +227,26 @@ hr {
 
 /* Selection styles */
 ::selection {
-	background: rgba(var(--accent), 0.2);
+	background: var(--accent);
+	color: #fff;
 }
+::-webkit-scrollbar {
+	width: 10px;
+	border-radius: 10px;
+	height: 8px;
+}
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+	background: #b9b9b9;
+	border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: var(--accent);
+}
+
+
 
 @media (max-width: 720px) {
 	body {
