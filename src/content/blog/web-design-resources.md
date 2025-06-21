@@ -439,7 +439,7 @@ Both are popular CSS frameworks, but they have different approaches:
 
 #### Icon + Font + Framework Examples
 
-##### Complete Landing Page Header
+##### Complete Landing Page
 
 ```html
 <!DOCTYPE html>

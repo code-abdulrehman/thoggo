@@ -17,7 +17,13 @@ const { title, description, pubDate, updatedDate, heroImage, content = '' } = As
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead 
+			title={title} 
+			description={description} 
+			image={heroImage}
+			type="article"
+			publishedTime={pubDate.toISOString()}
+		/>
 		<style>
 			main {
 				width: calc(100% - 2em);
@@ -153,5 +159,84 @@ const { title, description, pubDate, updatedDate, heroImage, content = '' } = As
 		</main>
 		<Footer />
 		<Chatbot client:load />
+
+		<script is:inline>
+			function addCopyButtonsToCodeBlocks() {
+				const codeBlocks = document.querySelectorAll('.prose pre');
+				
+				codeBlocks.forEach((pre, index) => {
+					// Skip if copy button already exists
+					if (pre.querySelector('.copy-button')) return;
+					
+					// Create copy button
+					const button = document.createElement('button');
+					button.classList.add('copy-button');
+					button.setAttribute('aria-label', 'Copy code to clipboard');
+					button.setAttribute('title', 'Copy code');
+					button.setAttribute('data-code-index', index.toString());
+					
+					button.innerHTML = `
+						<svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+							<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+						</svg>
+						<svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20,6 9,17 4,12"></polyline>
+						</svg>
+					`;
+					
+					// Add click event listener
+					button.addEventListener('click', async () => {
+						const codeElement = pre.querySelector('code');
+						if (!codeElement) return;
+						
+						try {
+							await navigator.clipboard.writeText(codeElement.textContent || '');
+							
+							// Show success state
+							button.classList.add('copied');
+							
+							// Reset after 2 seconds
+							setTimeout(() => {
+								button.classList.remove('copied');
+							}, 2000);
+						} catch (err) {
+							console.error('Failed to copy code:', err);
+							
+							// Fallback for older browsers
+							const textArea = document.createElement('textarea');
+							textArea.value = codeElement.textContent || '';
+							textArea.style.position = 'fixed';
+							textArea.style.left = '-999999px';
+							textArea.style.top = '-999999px';
+							document.body.appendChild(textArea);
+							textArea.focus();
+							textArea.select();
+							document.execCommand('copy');
+							document.body.removeChild(textArea);
+							
+							button.classList.add('copied');
+							setTimeout(() => {
+								button.classList.remove('copied');
+							}, 2000);
+						}
+					});
+					
+					// Insert button into the pre element
+					pre.style.position = 'relative';
+					pre.appendChild(button);
+				});
+			}
+
+			// Initialize when DOM is loaded
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', addCopyButtonsToCodeBlocks);
+			} else {
+				addCopyButtonsToCodeBlocks();
+			}
+
+			// Re-initialize for Astro page navigation
+			document.addEventListener('astro:page-load', addCopyButtonsToCodeBlocks);
+		</script>
 	</body>
 </html>

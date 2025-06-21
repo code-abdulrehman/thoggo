@@ -1,10 +1,15 @@
 ---
 import { AUTHOR_NAME, AUTHOR_BIO, AUTHOR_AVATAR, SOCIAL_LINKS } from '../consts';
+
+// Check if we're in the browser environment
+const isOnline = typeof window !== 'undefined' && navigator.onLine;
+// You can use isOnline to conditionally set avatar or other properties
+// const avatar = isOnline ? AUTHOR_AVATAR : "/default-avatar.png";
 ---
 
 <div class="author-info">
   <div class="author-avatar">
-    <img src={AUTHOR_AVATAR} alt={AUTHOR_NAME} />
+    <img src={AUTHOR_AVATAR} alt={AUTHOR_NAME.slice(0,2)} />
   </div>
   <div class="author-details">
     <h4 class="author-name">{AUTHOR_NAME}</h4>
