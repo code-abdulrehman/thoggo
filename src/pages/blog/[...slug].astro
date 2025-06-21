@@ -14,8 +14,10 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content } = await render(post);
+// Get the raw content for read time calculation
+const rawContent = post.body || '';
 ---
 
-<BlogPost {...post.data}>
+<BlogPost {...post.data} content={rawContent}>
 	<Content />
 </BlogPost>
