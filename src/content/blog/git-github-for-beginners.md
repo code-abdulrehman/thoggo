@@ -1,7 +1,7 @@
 ---
 title: 'Git & GitHub for Beginners'
 description: 'Master Git version control and GitHub with essential commands, SSH setup, repository management, and collaborative workflows. Complete beginner guide.'
-pubDate: 2025-06-20
+pubDate: 2025-06-21
 heroImage: '/git-github-box.png'
 ---
 
