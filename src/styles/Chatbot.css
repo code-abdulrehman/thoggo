@@ -222,13 +222,11 @@
 .message-content {
   display: flex;
   align-items: flex-start;
+  flex-direction: column;
   gap: 8px;
   max-width: 80%;
 }
 
-.message.user .message-content {
-  flex-direction: row-reverse;
-}
 
 .message-avatar {
   height: 28px;
@@ -253,6 +251,7 @@
 
 .message.user .message-bubble {
   background: var(--accent);
+  min-width: 100px;
   color: white;
 }
 
@@ -528,6 +527,42 @@
 
 .blog-url-button:hover svg {
   transform: translateX(1px);
+}
+
+
+/* Copy Button Styles */
+.message-footer {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: 2px;
+  gap: 6px;
+  max-width: 98%;
+  width: 100%;
+  padding: 2px 4px;
+}
+.message.user .message-footer {
+  justify-content: end;
+}
+
+.copy-button {
+  /* background: rgba(255, 255, 255, 0.1); */
+  border: none;
+  border-radius: 4px;
+  padding: 4px 6px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+  color: var(--text-color, #223139);
+  backdrop-filter: blur(10px);
+  font-size: 12px;
+}
+
+.copy-button:hover {
+  /* background: linear-gradient(35deg, var(--accent), var(--accent-light)); */
+  /* color: white !important; */
+  opacity: 1 !important;
+  transform: scale(1.05);
 }
 
 /* Mobile Responsiveness */
