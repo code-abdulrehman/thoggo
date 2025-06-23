@@ -1,7 +1,7 @@
 ---
 title: 'JavaScript for Beginners'
 description: 'Learn JavaScript fundamentals with variables, functions, objects, DOM manipulation, and hands-on projects. Build dynamic, interactive websites.'
-pubDate: 2025-06-19
+pubDate: 2025-06-18
 heroImage: '/js-box.png'
 ---
 

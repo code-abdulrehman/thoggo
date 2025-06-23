@@ -1,7 +1,7 @@
 ---
 title: 'Web Design Resources'
 description: 'Master web design with icon libraries, Google Fonts, CSS frameworks comparison, and practical examples. Get the latest tools and resources.'
-pubDate: 2025-06-16
+pubDate: 2025-06-19
 heroImage: '/design-tools.png'
 ---
 

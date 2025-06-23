@@ -90,6 +90,7 @@ const Chatbot: React.FC = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [copiedMessageId, setCopiedMessageId] = useState<number | null>(null);
 
   // Load chatbot state and messages from localStorage on component mount
   useEffect(() => {
@@ -188,28 +189,52 @@ const Chatbot: React.FC = () => {
         return blogs;
       }
       
-      // Fallback with real blog data if API is not available
+      // Fallback with complete blog data from our site
       return [
         {
-          title: "JavaScript for Beginners",
-          summary: "Learn JavaScript fundamentals with variables, functions, objects, DOM manipulation, and hands-on projects. Build dynamic, interactive websites.",
-          content: "Ready to bring your websites to life? JavaScript is the programming language that makes web pages interactive, dynamic, and engaging. It handles user interactions, animations, data processing, and much more.",
-          link: "/blog/javascript-for-beginners",
-          url: "/blog/javascript-for-beginners",
-          id: "javascript-for-beginners"
+          title: "How the Web Works",
+          summary: "Learn how the internet works from the ground up. Understand HTTP, browsers, servers, DNS, and the complete journey from typing a URL to seeing a webpage.",
+          content: "Ever wondered what happens when you type a URL into your browser and hit Enter? In just milliseconds, your browser displays a complete webpage from a server thousands of miles away. This comprehensive guide covers the complete journey from typing a URL to seeing a webpage, including HTTP/HTTPS protocols, DNS resolution, web servers, client-server architecture, and internet infrastructure.",
+          link: "/blog/how-the-web-works",
+          url: "/blog/how-the-web-works",
+          id: "how-the-web-works"
+        },
+        {
+          title: "Frontend vs Backend",
+          summary: "Learn the key differences between frontend and backend development. Discover technologies, career paths, salaries, and which path might be right for you.",
+          content: "When starting your web development journey, one of the first decisions you'll face is choosing between frontend and backend development. Both are essential for creating web applications, but they require different skills, tools, and mindsets. This comprehensive guide covers what frontend and backend development are, key technologies, career paths, salary expectations, and how to choose your path.",
+          link: "/blog/frontend-vs-backend",
+          url: "/blog/frontend-vs-backend",
+          id: "frontend-vs-backend"
+        },
+        {
+          title: "Most Useful VS Code Extensions",
+          summary: "Discover the 10 most essential VS Code extensions for web development in 2025. Complete guide with installation steps, features, and productivity tips.",
+          content: "Visual Studio Code is already a powerful editor, but its true strength lies in its vast ecosystem of extensions. With over 45,000 extensions available, choosing the right ones can transform your coding experience and supercharge your productivity. This comprehensive guide covers the top 10 essential VS Code extensions, step-by-step installation instructions, detailed features and benefits, configuration tips and best practices, and productivity shortcuts.",
+          link: "/blog/most-useful-vscode-extensions",
+          url: "/blog/most-useful-vscode-extensions",
+          id: "most-useful-vscode-extensions"
         },
         {
           title: "Responsive Web Design",
           summary: "Master responsive web design with CSS Grid, Flexbox, Tailwind CSS, media queries, and mobile-first approach. Complete guide with practical examples.",
-          content: "Responsive Web Design (RWD) ensures your website looks and functions perfectly on all devices—from smartphones to desktop computers. With mobile traffic accounting for over 50% of web usage, responsive design isn't optional—it's essential.",
+          content: "Responsive Web Design (RWD) ensures your website looks and functions perfectly on all devices—from smartphones to desktop computers. With mobile traffic accounting for over 50% of web usage, responsive design isn't optional—it's essential. Learn CSS Grid, Flexbox, media queries, and modern responsive techniques with interactive examples.",
           link: "/blog/responsive-web-design",
           url: "/blog/responsive-web-design",
           id: "responsive-web-design"
         },
         {
+          title: "JavaScript for Beginners",
+          summary: "Learn JavaScript fundamentals with variables, functions, objects, DOM manipulation, and hands-on projects. Build dynamic, interactive websites.",
+          content: "Ready to bring your websites to life? JavaScript is the programming language that makes web pages interactive, dynamic, and engaging. It handles user interactions, animations, data processing, and much more. This comprehensive guide covers JavaScript fundamentals including variables, functions, objects, arrays, DOM manipulation, events, and practical projects.",
+          link: "/blog/javascript-for-beginners",
+          url: "/blog/javascript-for-beginners",
+          id: "javascript-for-beginners"
+        },
+        {
           title: "Git & GitHub for Beginners",
           summary: "Learn Git version control and GitHub collaboration with step-by-step tutorials, commands, and best practices for developers.",
-          content: "Git is a distributed version control system that tracks changes in your code, while GitHub is a cloud-based platform for hosting Git repositories and collaborating with other developers.",
+          content: "Git is a distributed version control system that tracks changes in your code, while GitHub is a cloud-based platform for hosting Git repositories and collaborating with other developers. This comprehensive guide covers Git fundamentals, essential commands, branching strategies, merging, GitHub workflows, and collaboration best practices.",
           link: "/blog/git-github-for-beginners",
           url: "/blog/git-github-for-beginners",
           id: "git-github-for-beginners"
@@ -217,7 +242,7 @@ const Chatbot: React.FC = () => {
         {
           title: "CSS for Beginners",
           summary: "Learn CSS fundamentals including selectors, properties, layouts, and styling techniques to create beautiful websites.",
-          content: "CSS (Cascading Style Sheets) is the language used to style and layout web pages. It controls colors, fonts, spacing, positioning, and visual effects.",
+          content: "CSS (Cascading Style Sheets) is the language used to style and layout web pages. It controls colors, fonts, spacing, positioning, and visual effects. This comprehensive guide covers CSS selectors, properties, box model, flexbox, grid, responsive design techniques, and modern CSS features.",
           link: "/blog/css-for-beginners",
           url: "/blog/css-for-beginners",
           id: "css-for-beginners"
@@ -225,7 +250,7 @@ const Chatbot: React.FC = () => {
         {
           title: "HTML for Beginners",
           summary: "Learn HTML basics including elements, attributes, semantic markup, and structure to build web pages from scratch.",
-          content: "HTML (HyperText Markup Language) is the foundation of web development. It provides the structure and content of web pages using elements and tags.",
+          content: "HTML (HyperText Markup Language) is the foundation of web development. It provides the structure and content of web pages using elements and tags. This guide covers HTML fundamentals, semantic markup, forms, accessibility, and best practices for creating well-structured web pages.",
           link: "/blog/html-for-beginners",
           url: "/blog/html-for-beginners",
           id: "html-for-beginners"
@@ -233,7 +258,7 @@ const Chatbot: React.FC = () => {
         {
           title: "Web Design Resources",
           summary: "Comprehensive collection of web design tools, resources, frameworks, and inspiration for modern web development.",
-          content: "Discover essential web design resources including design tools, CSS frameworks, icon libraries, color palettes, typography, and inspiration galleries.",
+          content: "Discover essential web design resources including design tools like Figma and Adobe XD, CSS frameworks, icon libraries, color palettes, typography resources, stock photos, inspiration galleries, and everything you need to create stunning, modern websites and user interfaces.",
           link: "/blog/web-design-resources",
           url: "/blog/web-design-resources",
           id: "web-design-resources"
@@ -241,7 +266,7 @@ const Chatbot: React.FC = () => {
         {
           title: "Markdown Style Guide",
           summary: "Complete Markdown syntax guide with examples for formatting text, creating lists, links, images, and more.",
-          content: "Markdown is a lightweight markup language that allows you to format text using simple syntax. It's widely used for documentation, README files, and content creation.",
+          content: "Markdown is a lightweight markup language that allows you to format text using simple syntax. It's widely used for documentation, README files, and content creation. This comprehensive guide covers all Markdown syntax including headers, lists, links, images, code blocks, tables, and advanced formatting techniques.",
           link: "/blog/markdown-style-guide",
           url: "/blog/markdown-style-guide",
           id: "markdown-style-guide"
@@ -249,31 +274,55 @@ const Chatbot: React.FC = () => {
       ];
     } catch (error) {
       console.error('Error fetching blog data:', error);
-      // Return real blog data as fallback
+      // Return essential blog data as fallback
       return [
         {
           title: "JavaScript for Beginners",
-          summary: "Learn JavaScript fundamentals with variables, functions, objects, DOM manipulation, and hands-on projects. Build dynamic, interactive websites.",
-          content: "Ready to bring your websites to life? JavaScript is the programming language that makes web pages interactive, dynamic, and engaging.",
+          summary: "Learn JavaScript fundamentals with variables, functions, objects, DOM manipulation, and hands-on projects.",
+          content: "Complete JavaScript tutorial covering fundamentals, DOM manipulation, and practical projects for beginners.",
           link: "/blog/javascript-for-beginners",
           url: "/blog/javascript-for-beginners",
           id: "javascript-for-beginners"
         },
         {
           title: "Responsive Web Design",
-          summary: "Master responsive web design with CSS Grid, Flexbox, Tailwind CSS, media queries, and mobile-first approach. Complete guide with practical examples.",
-          content: "Responsive Web Design ensures your website looks and functions perfectly on all devices—from smartphones to desktop computers.",
+          summary: "Master responsive web design with CSS Grid, Flexbox, Tailwind CSS, media queries, and mobile-first approach.",
+          content: "Comprehensive guide to responsive design with modern CSS techniques and practical examples.",
           link: "/blog/responsive-web-design",
           url: "/blog/responsive-web-design",
           id: "responsive-web-design"
         },
         {
           title: "Git & GitHub for Beginners",
-          summary: "Learn Git version control and GitHub collaboration with step-by-step tutorials, commands, and best practices for developers.",
-          content: "Git is a distributed version control system that tracks changes in your code, while GitHub is a cloud-based platform for hosting Git repositories.",
+          summary: "Learn Git version control and GitHub collaboration with step-by-step tutorials, commands, and best practices.",
+          content: "Master Git and GitHub with practical tutorials, essential commands, and collaboration workflows.",
           link: "/blog/git-github-for-beginners",
           url: "/blog/git-github-for-beginners",
           id: "git-github-for-beginners"
+        },
+        {
+          title: "CSS for Beginners",
+          summary: "Learn CSS fundamentals including selectors, properties, layouts, and styling techniques to create beautiful websites.",
+          content: "CSS fundamentals covering selectors, properties, flexbox, grid, and responsive design techniques.",
+          link: "/blog/css-for-beginners",
+          url: "/blog/css-for-beginners",
+          id: "css-for-beginners"
+        },
+        {
+          title: "HTML for Beginners",
+          summary: "Learn HTML basics including elements, attributes, semantic markup, and structure to build web pages from scratch.",
+          content: "HTML fundamentals covering elements, attributes, semantic markup, and web page structure.",
+          link: "/blog/html-for-beginners",
+          url: "/blog/html-for-beginners",
+          id: "html-for-beginners"
+        },
+        {
+          title: "Web Design Resources",
+          summary: "Comprehensive collection of web design tools, resources, frameworks, and inspiration for modern web development.",
+          content: "Essential web design resources including tools, frameworks, inspiration, and modern development resources.",
+          link: "/blog/web-design-resources",
+          url: "/blog/web-design-resources",
+          id: "web-design-resources"
         }
       ];
     }
@@ -609,6 +658,18 @@ Provide a direct, helpful response to their question:`;
     window.open(url, '_self', 'noopener,noreferrer');
   };
 
+  const copyToClipboard = (text: string, id: number) => {
+    navigator.clipboard.writeText(text).then(() => {
+      console.log('Message copied to clipboard');
+      setCopiedMessageId(id);
+      setTimeout(() => {
+        setCopiedMessageId(null);
+      }, 2000);
+    }).catch(err => {
+      console.error('Error copying to clipboard:', err);
+    });
+  };
+
   return (
     <div className="chatbot-container">
       {/* Chat Window */}
@@ -688,9 +749,30 @@ Provide a direct, helpful response to their question:`;
                       })}
                     </div>
                   )}
+                </div>
+                
+                {/* Message Time and Copy Button - moved outside bubble */}
+                <div className="message-footer">
                   <span className="message-time">
                     {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </span>
+                  <button 
+                    className="copy-button"
+                    onClick={() => copyToClipboard(message.text, message.id)}
+                    title={copiedMessageId === message.id ? "Copied!" : "Copy message"}
+                    aria-label="Copy message to clipboard"
+                  >
+                    {copiedMessageId === message.id ? (
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20,6 9,17 4,12"></polyline>
+                      </svg>
+                    ) : (
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    )}
+                  </button>
                 </div>
               </div>
             </div>

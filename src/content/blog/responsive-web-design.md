@@ -1,7 +1,7 @@
 ---
 title: 'Responsive Web Design'
 description: 'Master responsive web design with CSS Grid, Flexbox, Tailwind CSS, media queries, and mobile-first approach. Complete guide with practical examples.'
-pubDate: 2025-06-21
+pubDate: 2025-06-20
 heroImage: '/responsive-box.png'
 ---
 

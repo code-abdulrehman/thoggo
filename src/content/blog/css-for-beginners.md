@@ -1,7 +1,7 @@
 ---
 title: 'CSS for Beginners'
 description: 'Master CSS fundamentals with classes, IDs, pseudo-classes, media queries, and hands-on examples. Build beautiful, responsive websites.'
-pubDate: 2025-06-18
+pubDate: 2025-06-17
 heroImage: '/css-box.png'
 ---
 

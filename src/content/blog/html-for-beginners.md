@@ -1,7 +1,7 @@
 ---
 title: 'HTML for Beginners'
 description: 'Learn HTML basics with key tags, practical examples, and best resources. Start building web pages with semantic, accessible HTML code.'
-pubDate: 2025-06-17
+pubDate: 2025-06-16
 heroImage: '/html-box.png'
 ---
 
