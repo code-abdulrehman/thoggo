@@ -7,6 +7,9 @@ interface Message {
   isUser: boolean;
   timestamp: Date;
   blogUrls?: BlogResult[];
+  themeConfirmation?: ThemeConfirmation;
+  colorPalettes?: ColorPalette[];
+  copyable?: boolean;
 }
 
 interface BlogResult {
@@ -23,6 +26,215 @@ interface BlogData {
   url?: string;
   id?: string;
 }
+
+interface ThemeConfirmation {
+  themeName: string;
+  colors: ColorPalette;
+  messageId: number;
+}
+
+interface ColorPalette {
+  name: string;
+  primary: string;
+  secondary: string;
+  accent: string;
+  background: string;
+  text: string;
+  description: string;
+}
+
+// Predefined color palettes - expanded with more AI-generated themes
+const COLOR_PALETTES: ColorPalette[] = [
+  {
+    name: "Default Theme",
+    primary: "#6633cc",
+    secondary: "#8855ee", 
+    accent: "#6633cc",
+    background: "#ffffff",
+    text: "#223139",
+    description: "Original site colors with purple accent"
+  },
+  {
+    name: "Dark Mode",
+    primary: "#374151",
+    secondary: "#4b5563",
+    accent: "#8b5cf6",
+    background: "#1f2937",
+    text: "#f9fafb",
+    description: "Dark theme perfect for night coding"
+  },
+  {
+    name: "Ocean Blue",
+    primary: "#0891b2",
+    secondary: "#06b6d4",
+    accent: "#0e7490",
+    background: "#f0f9ff",
+    text: "#1f2937",
+    description: "Deep ocean blue palette"
+  },
+  {
+    name: "Forest Green",
+    primary: "#059669",
+    secondary: "#10b981",
+    accent: "#047857",
+    background: "#f0fdf4",
+    text: "#1f2937",
+    description: "Nature-inspired green palette"
+  },
+  {
+    name: "Sunset Orange",
+    primary: "#ea580c",
+    secondary: "#fb923c",
+    accent: "#c2410c",
+    background: "#fff7ed",
+    text: "#1f2937",
+    description: "Warm orange theme like sunset"
+  },
+  {
+    name: "Rose Gold",
+    primary: "#e11d48",
+    secondary: "#f43f5e",
+    accent: "#be123c",
+    background: "#fff1f2",
+    text: "#1f2937",
+    description: "Elegant rose gold theme"
+  },
+  {
+    name: "Midnight Purple",
+    primary: "#7c3aed",
+    secondary: "#8b5cf6",
+    accent: "#6d28d9",
+    background: "#1e1b4b",
+    text: "#e0e7ff",
+    description: "Deep purple night theme"
+  },
+  {
+    name: "Arctic Ice",
+    primary: "#0ea5e9",
+    secondary: "#38bdf8",
+    accent: "#0284c7",
+    background: "#f0f9ff",
+    text: "#0c4a6e",
+    description: "Cool arctic ice theme"
+  },
+  {
+    name: "Golden Hour",
+    primary: "#f59e0b",
+    secondary: "#fbbf24",
+    accent: "#d97706",
+    background: "#fffbeb",
+    text: "#1f2937",
+    description: "Warm golden hour vibes"
+  },
+  {
+    name: "Emerald Dream",
+    primary: "#10b981",
+    secondary: "#34d399",
+    accent: "#059669",
+    background: "#ecfdf5",
+    text: "#064e3b",
+    description: "Rich emerald green theme"
+  },
+  {
+    name: "Cyberpunk",
+    primary: "#ec4899",
+    secondary: "#f472b6",
+    accent: "#db2777",
+    background: "#0f0f23",
+    text: "#00ff88",
+    description: "Futuristic cyberpunk theme"
+  },
+  {
+    name: "Coral Reef",
+    primary: "#f97316",
+    secondary: "#fb923c",
+    accent: "#ea580c",
+    background: "#fff7ed",
+    text: "#1f2937",
+    description: "Vibrant coral reef colors"
+  },
+  {
+    name: "Lavender Fields",
+    primary: "#8b5cf6",
+    secondary: "#a78bfa",
+    accent: "#7c3aed",
+    background: "#faf5ff",
+    text: "#581c87",
+    description: "Soft lavender field theme"
+  },
+  {
+    name: "Cherry Blossom",
+    primary: "#f472b6",
+    secondary: "#f9a8d4",
+    accent: "#ec4899",
+    background: "#fdf2f8",
+    text: "#831843",
+    description: "Delicate cherry blossom pink"
+  },
+  {
+    name: "Neon Nights",
+    primary: "#06b6d4",
+    secondary: "#22d3ee",
+    accent: "#0891b2",
+    background: "#0c1222",
+    text: "#00ffff",
+    description: "Electric neon night theme"
+  },
+  {
+    name: "Autumn Leaves",
+    primary: "#dc2626",
+    secondary: "#ef4444",
+    accent: "#b91c1c",
+    background: "#fef2f2",
+    text: "#7f1d1d",
+    description: "Warm autumn leaf colors"
+  },
+  {
+    name: "Mint Fresh",
+    primary: "#14b8a6",
+    secondary: "#2dd4bf",
+    accent: "#0d9488",
+    background: "#f0fdfa",
+    text: "#134e4a",
+    description: "Fresh mint green theme"
+  },
+  {
+    name: "Royal Blue",
+    primary: "#1d4ed8",
+    secondary: "#3b82f6",
+    accent: "#1e40af",
+    background: "#eff6ff",
+    text: "#1e3a8a",
+    description: "Classic royal blue elegance"
+  },
+  {
+    name: "Coffee Bean",
+    primary: "#92400e",
+    secondary: "#b45309",
+    accent: "#78350f",
+    background: "#fefce8",
+    text: "#451a03",
+    description: "Rich coffee bean brown"
+  },
+  {
+    name: "Galaxy Purple",
+    primary: "#6366f1",
+    secondary: "#818cf8",
+    accent: "#4f46e5",
+    background: "#0f0f1a",
+    text: "#c7d2fe",
+    description: "Deep space galaxy theme"
+  },
+  {
+    name: "Crimson Fire",
+    primary: "#dc2626",
+    secondary: "#ef4444",
+    accent: "#b91c1c",
+    background: "#fef2f2",
+    text: "#7f1d1d",
+    description: "Bold crimson red theme"
+  }
+];
 
 const API_BASE_URL = 'https://ppost-backend.vercel.app/api/thoggo';
 
@@ -88,8 +300,140 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState<ColorPalette>(COLOR_PALETTES[0]);
+  const [copiedMessageId, setCopiedMessageId] = useState<number | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Theme management functions (moved up to fix hoisting issue)
+  const applyTheme = (palette: ColorPalette) => {
+    const root = document.documentElement;
+    
+    // Convert hex to RGB for CSS variables
+    const hexToRgb = (hex: string) => {
+      const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : null;
+    };
+
+    const primaryRgb = hexToRgb(palette.primary);
+    const secondaryRgb = hexToRgb(palette.secondary);
+    const accentRgb = hexToRgb(palette.accent);
+    const backgroundRgb = hexToRgb(palette.background);
+    const textRgb = hexToRgb(palette.text);
+
+    if (primaryRgb && secondaryRgb && accentRgb && backgroundRgb && textRgb) {
+      // Apply CSS custom properties with proper RGB values
+      root.style.setProperty('--accent', palette.accent);
+      root.style.setProperty('--accent-light', palette.secondary);
+      
+      // Determine if this is a dark theme
+      const isDarkTheme = palette.name.toLowerCase().includes('dark') || 
+                         palette.name.toLowerCase().includes('night') || 
+                         palette.name.toLowerCase().includes('midnight') ||
+                         palette.name.toLowerCase().includes('galaxy') ||
+                         palette.name.toLowerCase().includes('neon') ||
+                         palette.name.toLowerCase().includes('cyberpunk') ||
+                         backgroundRgb.r + backgroundRgb.g + backgroundRgb.b < 300; // Dark background detection
+      
+      // Add theme class to body for CSS targeting
+      document.body.classList.remove('theme-dark', 'theme-light');
+      document.body.classList.add(isDarkTheme ? 'theme-dark' : 'theme-light');
+      document.body.setAttribute('data-theme', isDarkTheme ? 'dark' : 'light');
+      
+      // For dark mode, we need to handle colors differently
+      if (isDarkTheme) {
+        root.style.setProperty('--gray-dark', `${textRgb.r}, ${textRgb.g}, ${textRgb.b}`);
+        root.style.setProperty('--gray', `156, 163, 175`); // Medium gray for dark mode
+        root.style.setProperty('--gray-light', `55, 65, 81`); // Dark gray for backgrounds
+        root.style.setProperty('--black', `${textRgb.r}, ${textRgb.g}, ${textRgb.b}`);
+      } else {
+        // Light mode colors
+        root.style.setProperty('--gray-dark', `${textRgb.r}, ${textRgb.g}, ${textRgb.b}`);
+        root.style.setProperty('--gray', `107, 114, 128`);
+        root.style.setProperty('--gray-light', `243, 244, 246`);
+        root.style.setProperty('--black', `0, 0, 0`);
+      }
+      
+      // Set body background and text color
+      document.body.style.backgroundColor = palette.background;
+      document.body.style.color = palette.text;
+      
+      // Apply theme to all major elements
+      const elementsToStyle = [
+        'main', 'header', 'nav', 'section', 'article', 'aside', 'footer',
+        '.container', '.content', '.post', '.blog-post'
+      ];
+      
+      elementsToStyle.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+          if (element instanceof HTMLElement) {
+            element.style.backgroundColor = palette.background;
+            element.style.color = palette.text;
+          }
+        });
+      });
+      
+      // Apply to headings
+      const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      headings.forEach(heading => {
+        if (heading instanceof HTMLElement) {
+          heading.style.color = palette.text;
+        }
+      });
+      
+      // Apply to paragraphs
+      const paragraphs = document.querySelectorAll('p');
+      paragraphs.forEach(p => {
+        if (p instanceof HTMLElement) {
+          p.style.color = palette.text;
+        }
+      });
+      
+      // Apply to links
+      const links = document.querySelectorAll('a');
+      links.forEach(link => {
+        if (link instanceof HTMLElement) {
+          link.style.color = palette.accent;
+        }
+      });
+      
+      // Apply theme data attribute to input for styling
+      const chatbotInput = document.querySelector('.chatbot-input input') as HTMLInputElement;
+      if (chatbotInput) {
+        chatbotInput.setAttribute('data-theme', isDarkTheme ? 'dark' : 'light');
+      }
+      
+      setCurrentTheme(palette);
+      localStorage.setItem('chatbot-theme', JSON.stringify(palette));
+      
+      console.log('Theme applied:', palette.name);
+      console.log('Is dark theme:', isDarkTheme);
+      console.log('Colors applied:', {
+        background: palette.background,
+        text: palette.text,
+        accent: palette.accent,
+        primary: palette.primary,
+        secondary: palette.secondary
+      });
+    }
+  };
+
+  const loadTheme = () => {
+    try {
+      const savedTheme = localStorage.getItem('chatbot-theme');
+      if (savedTheme) {
+        const theme = JSON.parse(savedTheme);
+        applyTheme(theme);
+      }
+    } catch (error) {
+      console.error('Error loading theme:', error);
+    }
+  };
 
   // Load chatbot state and messages from localStorage on component mount
   useEffect(() => {
@@ -98,6 +442,9 @@ const Chatbot: React.FC = () => {
     if (savedIsOpen !== null) {
       setIsOpen(JSON.parse(savedIsOpen));
     }
+
+    // Load theme
+    loadTheme();
 
     // Load messages
     const savedMessages = localStorage.getItem('chatbot-messages');
@@ -127,7 +474,7 @@ const Chatbot: React.FC = () => {
   const setDefaultMessage = () => {
     const defaultMessage: Message = {
       id: 1,
-      text: "🤖 Beep beep! I'm BlogBot, your AI assistant. I can search blogs, answer questions, and find related content. What can I help you with? 🚀",
+      text: "🤖 **Hi! I'm BlogBot** - Your AI assistant for:\n\n📝 **Blog Search** - Find articles\n🎨 **20+ Themes** - Beautiful color palettes & custom themes\n💬 **Questions** - Ask me anything!\n\n**Try:** \"Show color palettes\", \"Generate sunset theme\", \"Search JavaScript\"",
       isUser: false,
       timestamp: new Date()
     };
@@ -495,11 +842,136 @@ Provide a direct, helpful response to their question:`;
     setIsTyping(true);
 
     try {
-      // Check if user is searching for content
+      // Check for theme-related commands
       const query = userMessage.text.toLowerCase();
       let botResponse: Message;
 
-      if (query.includes('search') || query.includes('find') || query.includes('look for')) {
+      // Theme-related commands
+      if (query.includes('dark mode') || query.includes('apply dark')) {
+        const darkTheme = COLOR_PALETTES.find(p => p.name === 'Dark Mode');
+        if (darkTheme) {
+          confirmThemeChange(darkTheme, userMessage.id);
+          setIsTyping(false);
+          return;
+        }
+      } else if (query.includes('light mode') || query.includes('default theme')) {
+        const defaultTheme = COLOR_PALETTES.find(p => p.name === 'Default Theme');
+        if (defaultTheme) {
+          confirmThemeChange(defaultTheme, userMessage.id);
+          setIsTyping(false);
+          return;
+        }
+      } else if (query.includes('show colors') || query.includes('show palettes') || query.includes('available themes') || 
+                 query.includes('color themes') || query.includes('theme options') || query.includes('all themes')) {
+        showColorPalettes();
+        setIsTyping(false);
+        return;
+      } else if (query.includes('generate theme') || query.includes('create theme') || query.includes('custom theme') || 
+                 query.includes('make theme') || query.includes('design theme') || query.includes('build theme') ||
+                 query.match(/\b(theme|color|palette)\b.*\b(like|for|with|inspired|based)\b/i) ||
+                 query.match(/\b(make|create|generate|design|build)\b.*\b(red|blue|green|yellow|orange|purple|pink|black|white|gray|brown)\b.*\b(theme|color|palette)\b/i) ||
+                 query.match(/\b(red|blue|green|yellow|orange|purple|pink|black|white|gray|brown)\b.*\b(theme|color|palette)\b/i)) {
+        // Extract theme description
+        let themeDescription = query
+          .replace(/generate|create|make|design|build|apply/gi, '')
+          .replace(/theme|color|palette/gi, '')
+          .replace(/like|for|with|inspired|based|and/gi, '')
+          .trim();
+
+        // If it's a simple color request, enhance the description
+        const colorMatch = query.match(/\b(red|blue|green|yellow|orange|purple|pink|black|white|gray|brown|crimson|scarlet|ruby|cherry|rose|coral)\b/i);
+        if (colorMatch && themeDescription.length < 10) {
+          const color = colorMatch[0].toLowerCase();
+          themeDescription = `${color} theme with warm and vibrant ${color} colors`;
+        }
+
+        if (themeDescription.length < 5) {
+          const helpMessage: Message = {
+            id: Date.now() + 1,
+            text: 'Please provide a more detailed description for your custom theme. For example:\n\n• "Generate a sunset beach theme"\n• "Create a cyberpunk theme"\n• "Make a red theme"\n• "Design colors inspired by autumn leaves"',
+            isUser: false,
+            timestamp: new Date()
+          };
+          setMessages(prev => [...prev, helpMessage]);
+          setIsTyping(false);
+          return;
+        }
+
+        // Show loading message
+        const loadingMessage: Message = {
+          id: Date.now() + 1,
+          text: '🎨 Generating your custom theme... This may take a moment!',
+          isUser: false,
+          timestamp: new Date()
+        };
+        setMessages(prev => [...prev, loadingMessage]);
+
+        try {
+          const customTheme = await generateCustomTheme(themeDescription);
+          if (customTheme) {
+            // Remove loading message and add success message
+            setMessages(prev => prev.slice(0, -1));
+            confirmThemeChange(customTheme, userMessage.id);
+          } else {
+            // Replace loading message with error message
+            const errorMessage: Message = {
+              id: Date.now() + 2,
+              text: 'Sorry, I had trouble generating that theme. Please try describing it differently or be more specific about the colors and mood you want.',
+              isUser: false,
+              timestamp: new Date()
+            };
+            setMessages(prev => [...prev.slice(0, -1), errorMessage]);
+          }
+        } catch (error) {
+          console.error('Theme generation error:', error);
+          // Replace loading message with error message
+          const errorMessage: Message = {
+            id: Date.now() + 2,
+            text: 'I encountered an error while generating your theme. Please try again with a different description.',
+            isUser: false,
+            timestamp: new Date()
+          };
+          setMessages(prev => [...prev.slice(0, -1), errorMessage]);
+        }
+        setIsTyping(false);
+        return;
+      } else if (query.includes('apply') && (query.includes('theme') || query.includes('color'))) {
+        // Try to find theme by name in the message
+        const foundTheme = COLOR_PALETTES.find(p => 
+          query.includes(p.name.toLowerCase()) ||
+          (p.name.includes('Green') && query.includes('green')) ||
+          (p.name.includes('Orange') && query.includes('orange')) ||
+          (p.name.includes('Purple') && query.includes('purple')) ||
+          (p.name.includes('Blue') && query.includes('blue')) ||
+          (p.name.includes('Pink') && query.includes('pink')) ||
+          (p.name.includes('Rose') && query.includes('rose')) ||
+          (p.name.includes('Red') && (query.includes('red') || query.includes('crimson') || query.includes('cherry'))) ||
+          (p.name.includes('Autumn') && (query.includes('red') || query.includes('autumn'))) ||
+          (p.name.includes('Cherry') && (query.includes('red') || query.includes('pink') || query.includes('cherry'))) ||
+          (p.name.includes('Coral') && (query.includes('red') || query.includes('orange') || query.includes('coral')))
+        );
+        
+        if (foundTheme) {
+          confirmThemeChange(foundTheme, userMessage.id);
+          setIsTyping(false);
+          return;
+        } else {
+          botResponse = {
+            id: Date.now() + 1,
+            text: `🎨 I couldn't find that specific theme. Here are all available themes you can apply:`,
+            isUser: false,
+            timestamp: new Date(),
+            colorPalettes: COLOR_PALETTES
+          };
+        }
+      } else if (query.includes('current theme') || query.includes('what theme')) {
+        botResponse = {
+          id: Date.now() + 1,
+          text: `🎨 **Current Theme**: ${currentTheme.name}\n\n${currentTheme.description}\n\nWould you like to see other available themes? Just ask me to "show color palettes"!`,
+          isUser: false,
+          timestamp: new Date()
+        };
+      } else if (query.includes('search') || query.includes('find') || query.includes('look for')) {
         // Extract search terms (remove common words)
         const searchTerms = userMessage.text
           .replace(/search|find|look for|can you|please|help me|about/gi, '')
@@ -576,7 +1048,7 @@ Provide a direct, helpful response to their question:`;
         };
       }
 
-      setTimeout(() => {
+    setTimeout(() => {
         setMessages(prev => [...prev, botResponse]);
         setIsTyping(false);
       }, 1000 + Math.random() * 1000);
@@ -592,7 +1064,7 @@ Provide a direct, helpful response to their question:`;
       
       setTimeout(() => {
         setMessages(prev => [...prev, errorResponse]);
-        setIsTyping(false);
+      setIsTyping(false);
       }, 1000);
     }
   };
@@ -605,8 +1077,148 @@ Provide a direct, helpful response to their question:`;
   };
 
   const handleBlogClick = (url: string) => {
-    console.log('Opening blog URL:', url); // Debug log
-    window.open(url, '_self', 'noopener,noreferrer');
+    console.log('🔗 Opening blog URL:', url);
+    window.open(url, '_blank');
+  };
+
+  const copyToClipboard = async (text: string, messageId: number) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedMessageId(messageId);
+      setTimeout(() => setCopiedMessageId(null), 2000);
+      console.log('Text copied to clipboard');
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setCopiedMessageId(messageId);
+      setTimeout(() => setCopiedMessageId(null), 2000);
+    }
+  };
+
+  // Theme management functions
+  const confirmThemeChange = (palette: ColorPalette, messageId: number) => {
+    const confirmationMessage: Message = {
+      id: Date.now(),
+      text: `🎨 **Theme Change Confirmation**\n\nAre you sure you want to apply the **${palette.name}** theme?\n\n${palette.description}`,
+      isUser: false,
+      timestamp: new Date(),
+      themeConfirmation: {
+        themeName: palette.name,
+        colors: palette,
+        messageId: messageId
+      }
+    };
+    
+    setMessages(prev => [...prev, confirmationMessage]);
+  };
+
+  const handleThemeConfirmation = (confirmed: boolean, themeData: ThemeConfirmation) => {
+    if (confirmed) {
+      applyTheme(themeData.colors);
+      const successMessage: Message = {
+        id: Date.now(),
+        text: `🎨 ✅ **Theme Applied Successfully!**\n\nThe **${themeData.themeName}** theme has been applied to your website. All settings are saved automatically!`,
+        isUser: false,
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, successMessage]);
+    } else {
+      const cancelMessage: Message = {
+        id: Date.now(),
+        text: `🎨 Theme change cancelled. Your current theme remains unchanged.`,
+        isUser: false,
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, cancelMessage]);
+    }
+  };
+
+  const showColorPalettes = () => {
+    const paletteMessage: Message = {
+      id: Date.now(),
+      text: `🎨 **Amazing Color Collection!**\n\nExplore **${COLOR_PALETTES.length} stunning themes** - from elegant classics to bold modern designs!\n\n✨ **Categories include:**\n• Professional themes (Default, Royal Blue, Coffee Bean)\n• Dark modes (Dark Mode, Midnight Purple, Galaxy Purple)\n• Nature-inspired (Forest Green, Ocean Blue, Autumn Leaves)\n• Vibrant & Fun (Cyberpunk, Neon Nights, Cherry Blossom)\n• Warm & Cozy (Golden Hour, Coral Reef, Rose Gold)\n\n**Click any palette below to preview and apply instantly!**`,
+      isUser: false,
+      timestamp: new Date(),
+      colorPalettes: COLOR_PALETTES
+    };
+    
+    setMessages(prev => [...prev, paletteMessage]);
+  };
+
+  // AI Theme Generation Function
+  const generateCustomTheme = async (userDescription: string): Promise<ColorPalette | null> => {
+    try {
+      const prompt = `Generate a color palette based on this description: "${userDescription}"
+
+Please create a cohesive color theme with:
+- A descriptive name (2-4 words)
+- Primary color (main brand color)
+- Secondary color (lighter/complementary)
+- Accent color (for highlights/links)
+- Background color (main background)
+- Text color (readable on background)
+- A brief description (under 50 characters)
+
+Respond with ONLY a JSON object in this format:
+{
+  "name": "Theme Name",
+  "primary": "#hexcolor",
+  "secondary": "#hexcolor", 
+  "accent": "#hexcolor",
+  "background": "#hexcolor",
+  "text": "#hexcolor",
+  "description": "Brief theme description"
+}
+
+Make sure colors have good contrast and work well together. For dark themes, use dark backgrounds with light text. For light themes, use light backgrounds with dark text. Ensure colors are not too dark or too light, and avoid colors that are too similar to each other. Avoid problematic combinations like yellow with light purple. When users specify colors or gradients, create harmonious color schemes that complement their preferences.`;
+
+      const response = await fetch(`${API_BASE_URL}/summarize`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          blogContent: prompt,
+          title: `Custom Theme: ${userDescription}`
+        }),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Theme generation request failed');
+      }
+      
+      const data = await response.json();
+      
+      if (data.success && data.data.summary) {
+        try {
+          // Try to extract JSON from the response
+          const jsonMatch = data.data.summary.match(/\{[\s\S]*\}/);
+          if (jsonMatch) {
+            const themeData = JSON.parse(jsonMatch[0]);
+            
+            // Validate the theme data
+            if (themeData.name && themeData.primary && themeData.secondary && 
+                themeData.accent && themeData.background && themeData.text && 
+                themeData.description) {
+              return themeData;
+            }
+          }
+        } catch (parseError) {
+          console.error('Error parsing generated theme:', parseError);
+        }
+      }
+      
+      return null;
+    } catch (error) {
+      console.error('Error generating custom theme:', error);
+      return null;
+    }
   };
 
   return (
@@ -664,6 +1276,62 @@ Provide a direct, helpful response to their question:`;
                     style={{ whiteSpace: 'pre-line' }}
                     dangerouslySetInnerHTML={{ __html: renderMarkdown(message.text) }}
                   />
+                  
+                  {/* Theme Confirmation Buttons */}
+                  {message.themeConfirmation && (
+                    <div className="theme-confirmation">
+                      <div className="theme-preview" style={{
+                        background: `linear-gradient(135deg, ${message.themeConfirmation.colors.primary}, ${message.themeConfirmation.colors.secondary})`,
+                        color: message.themeConfirmation.colors.text,
+                        textShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+                        padding: '12px',
+                        borderRadius: '8px',
+                        margin: '12px 0'
+                      }}>
+                        <strong>{message.themeConfirmation.colors.name}</strong>
+                      </div>
+                      <div className="confirmation-buttons">
+                        <button 
+                          className="confirm-button yes"
+                          onClick={() => handleThemeConfirmation(true, message.themeConfirmation!)}
+                        >
+                          Apply
+                        </button>
+                        <button 
+                          className="confirm-button no"
+                          onClick={() => handleThemeConfirmation(false, message.themeConfirmation!)}
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Color Palettes Display */}
+                  {message.colorPalettes && message.colorPalettes.length > 0 && (
+                    <div className="color-palettes">
+                      {message.colorPalettes.map((palette, index) => (
+                        <div key={index} className="palette-card" onClick={() => confirmThemeChange(palette, message.id)}>
+                          <div className="palette-colors">
+                            <div className="palette-colors-row">
+                              <div className="color-stripe" style={{ backgroundColor: palette.primary }}></div>
+                              <div className="color-stripe" style={{ backgroundColor: palette.secondary }}></div>
+                              <div className="color-stripe" style={{ backgroundColor: palette.accent }}></div>
+                              <div className="color-stripe" style={{ backgroundColor: palette.background }}></div>
+                              <div className="color-stripe" style={{ backgroundColor: palette.text }}></div>
+                            </div>
+                          </div>
+                          <div className="palette-info">
+                            <h5>{palette.name}</h5>
+                            <p>{palette.description}</p>
+                          </div>
+                          <div className="theme-preview-badge">Apply</div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Blog Results */}
                   {message.blogUrls && message.blogUrls.length > 0 && (
                     <div className="blog-results">
                       {message.blogUrls.map((blog, index) => {
@@ -688,10 +1356,31 @@ Provide a direct, helpful response to their question:`;
                       })}
                     </div>
                   )}
-                  <span className="message-time">
-                    {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                  </span>
+                  
                 </div>
+                  {/* Message Time and Copy Button */}
+                  <div className="message-footer">
+                    <span className="message-time">
+                      {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    </span>
+                    <button 
+                      className="copy-button"
+                      onClick={() => copyToClipboard(message.text, message.id)}
+                      title={copiedMessageId === message.id ? "Copied!" : "Copy message"}
+                      aria-label="Copy message to clipboard"
+                    >
+                      {copiedMessageId === message.id ? (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20,6 9,17 4,12"></polyline>
+                        </svg>
+                      ) : (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                      )}
+                    </button>
+                  </div>
               </div>
             </div>
           ))}
