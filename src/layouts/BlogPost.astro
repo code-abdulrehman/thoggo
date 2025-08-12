@@ -14,7 +14,7 @@ type Props = CollectionEntry<'blog'>['data'] & {
 };
 
 const { title, description, pubDate, updatedDate, heroImage, content = '' } = Astro.props;
-const currentUrl = Astro.url.href;
+const currentUrl = Astro.url.href || "https://thoggo.vercel.app/";
 ---
 
 <html lang="en">
